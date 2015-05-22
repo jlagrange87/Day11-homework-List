@@ -1,18 +1,15 @@
 body {
-	background-color: #70CEF7;
+	background-color: #6CB9EA;
 }
-
 #title{
 	font-size:50px;
 	color: white;
 	text-align: center;
 	margin-top: 20px;
 }
-
 #parent {
 	margin-top:5%;
 	text-align: center;
-
 }
 div > input {
 	font-size: 15px;
@@ -63,15 +60,16 @@ section > ul{
 	text-align: center;
 	padding-left: 0px;
 	color: white;
+	font-size:20px;
 }
 section > ul > li {
+	cursor: default;
 	text-align: center;
-	padding-left: 0px;
 	color: white;
+	font-size:20px;
+	transition: fade .1s ease;
 }
 
 section {
-
-	
 	display: inline-block;
 }

@@ -1,67 +1,59 @@
 var buttonInput = document.getElementById("submit-btn");
-var messageInput = document.getElementById("input-box");
-var messageList = document.getElementById("message-list");
+var boxInput = document.getElementById("input-box");
+var listContent = document.getElementById("message-list");
 var clearButton = document.getElementById("clear");
 var list = [];
+// window.addEventListener("unload", populateStorage);
 buttonInput.addEventListener("click", onButtonClick);
-// buttonInput.addEventListener("click", render);
-messageInput.addEventListener("keyup", pressEnter);
-// messageInput.addEventListener("keyup", render);
+boxInput.addEventListener("keyup", pressEnter);
 clearButton.addEventListener("click", clear);
+listContent.addEventListener("click", cross);
 
 function onButtonClick(e) {
-	if (messageInput.value == ""){
+	if (boxInput.value == ""){
 		alert("Please type something!");
 	}
 	else {
-	// messageList.innerHTML += "<li>" + messageInput.value + "</li>";
-	// messageList += 
-	list.push(messageInput.value);
-	messageInput.value = "";
-	console.log(list);
+	list.push(boxInput.value);
+	boxInput.value = "";
 	render();
 	}
 }
-
 function pressEnter(e){
 	if(event.keyCode === 13){
-		if (messageInput.value == ""){
+		if (boxInput.value == ""){
 		alert("Please type something!");
 		}
 		else{
-		// messageList.innerHTML += "<li>" + messageInput.value + "</li>";
-		// messageList += 
-		list.push(messageInput.value);
-		messageInput.value="";
-		console.log(list);
+		list.push(boxInput.value);
+		boxInput.value="";
 		render();
 		}
 	}
-	 
 }
-
 function clear(e){
 	list = [];
-	messageList.innerHTML = "";
+	listContent.innerHTML = "";
 }
-
 function render(e){
+	// listContent.innerHTML = "";
 	for(var i = 0; i<list.length; i++){
-		console.log(list[i]);
-		messageList.innerHTML += "<li>" + list[i] + "</li>";
+		listContent.innerHTML += "<li>" + list[i] + "</li>";
 		list = [];
 	}
-	console.log(messageList);
-	console.log(messageList.innerHTML);
 }
+function cross(e){
+	e.target.style.textDecoration = "line-through"
+	e.target.style.fontSize = "15px";
+}
+// function populateStorage(){
+// 	localStorage.setItem("todolist",JSON.stringify(list));
 
-
-
-
-
-
-
-
-
+// }
+// if(localStorage.getItem("todolist") !== ""){
+// 	var restore = JSON.parse(localStorage.getItem("todolist"));
+// 	list = restore;
+// 	listContent.innerHTML += "Hit Submit to continue.";
+// }
 
 
